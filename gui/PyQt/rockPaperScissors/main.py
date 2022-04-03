@@ -81,7 +81,7 @@ class Ui_MainWindow(object):
             self.computer_score += 1
         else:
             self.player_score += 1
-        # update_labels("rock", choice)
+        self.update_labels("rock", choice)
 
     def choose_paper(self):
         choice = self.computer_choice()
@@ -91,7 +91,7 @@ class Ui_MainWindow(object):
             pass
         else:
             self.computer_score += 1
-        # update_labels("paper", choice)
+        self.update_labels("paper", choice)
 
     def choose_scissors(self):
         choice = self.computer_choice()
@@ -101,7 +101,16 @@ class Ui_MainWindow(object):
             self.player_score += 1
         else:
             pass
-        # update_labels("scissors", choice)
+        self.update_labels("scissors", choice)
+
+    def update_labels(self, p, c):
+        self.label.setText(f"<html><head/><body><p><span style=\" font-size:18pt;\">Your choice: {p}"
+                           "</span></p>"
+                           f"<p><span style=\" font-size:18pt;\">Computer choice: {c}</span></p></body></html>")
+        self.label_2.setText(f"<html><head/><body><p><span style=\" font-size:18pt;\">Your score: {self.player_score}"
+                             "</span></p>"
+                             f"<p><span style=\" font-size:18pt;\">Computer score: {self.computer_score}"
+                             "</span></p></body></html>")
 
 
 if __name__ == "__main__":
